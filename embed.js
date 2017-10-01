@@ -7,12 +7,19 @@ exports.generate = function(bot, member) {
     .setTitle(`Who is ${member.displayName} ?`)
     .setAuthor(bot.user.username, bot.user.avatarURL)
     .setColor(3447003)
-    .setDescription(`Voici la description de ${member.displayName}`)
-    .addField('Nom', trombi[member.id].name);
+    .setDescription(`Voici la description de ${member.displayName}`);
 
-  if (trombi[member.id].avatar) {
-    console.log('Found an avatar!');
-    embed.setImage(trombi[member.id].avatar);
+
+  if (trombi[member.id]) {
+    if (trombi[member.id].name) {
+      embed.addField('Nom', trombi[member.id].name);
+    }
+    if (trombi[member.id].avatar) {
+      embed.setImage(trombi[member.id].avatar);
+    }
+  }
+  else {
+    embed.addField('???', `Je ne connais pas encore cette personne.`);
   }
 
   return embed;
