@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 const fs = require('fs');
-const trombi = JSON.parse(fs.readFileSync('./trombi.json', 'utf8'));
 
 exports.generate = function(bot, member) {
+  const trombi = JSON.parse(fs.readFileSync('./trombi.json', 'utf8'));
   const embed = new Discord.RichEmbed()
     .setTitle(`Who is ${member.displayName} ?`)
     .setAuthor(bot.user.username, bot.user.avatarURL)
