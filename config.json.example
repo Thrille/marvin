@@ -1,0 +1,5 @@
+{
+  "token": "<App bot user token>",
+  "prefix": "$",
+  "ownerID": ""
+}
