@@ -1,0 +1,66 @@
+{
+  "hase": [
+    {
+      "name": "Karadoc",
+      "text": "Bon, je vais essayer de trouver un petit lièvre pour ce soir parce qu’il commence à faire faim !"
+    },
+    {
+      "name": "Bohort",
+      "text": "Je me demande comment vous faîtes, moi je serais incapable de trouver de quoi manger dans la forêt."
+    },
+    {
+      "name": "Karadoc",
+      "text": "Pour attraper des bêtes, il faut imiter les femelles. Là, pour le coup, hop ! La femelle lièvre."
+    },
+    {
+      "name": "Bohort",
+      "text": "La hase."
+    },
+    {
+      "name": "Karadoc",
+      "text": "De quoi ?"
+    },
+    {
+      "name": "Bohort",
+      "text": "La femelle lièvre, c’est la hase."
+    },
+    {
+      "name": "Karadoc",
+      "text": "Ah non, moi je connais que le cri."
+    },
+    {
+      "name": "Karadoc",
+      "text": "_pui pui pui pa pa pa pa pa pa pui pui pui pa pa pa pa pa pa_"
+    }
+  ],
+  "grelottine": [
+    {
+      "name": "Perceval",
+      "text": "Si on se faisait une grelottine ?"
+    },
+    {
+      "name": "Le tavernier",
+      "text": "Une quoi ?"
+    },
+    {
+      "name": "Perceval",
+      "text": "Une grelottine, c’est un jeu du Pays de Galles."
+    },
+    {
+      "name": "Karadoc",
+      "text": "Je connais pas."
+    },
+    {
+      "name": "Perceval",
+      "text": "C’est facile. On peut jouer soit avec des haricots, soit avec des lentilles. Le premier qui annonce la mise, il dit mettons : “lance de seize” ou “lance de trente-deux” ou une quadruplée comme on appelle, c’est une “lance de soixante-quatre”. Parce qu’on annonce toujours de seize en seize, sauf pour les demi-coups. Là, celui qui est à sa gauche, soit il monte au moins de quatre, soit il passe il dit : “passe-grelot”, soit il parie qu’il va monter de six ou de sept et il peut tenter une grelottine. À ce compte-là, il joue pas, il attend le tour d’après, et si le total des mises des deux autres suffit pas à combler l’écart, il gagne sa grelottine et on recommence le tour avec des mises de dix-sept en dix-sept. (…) Donc mettons le suivant, il annonce une quadruplée, donc là elle vaut soixante-huit, il peut contrer ou il se lève et il tape sur ses haricots en criant “grelotte, ça picote !” et il tente la relance jusqu’au tour d’après."
+    },
+    {
+      "name": "Le tavernier",
+      "text": "Le problème, c’est que j’ai ni lentilles, ni haricots."
+    },
+    {
+      "name": "Perceval",
+      "text": "Ah merde..."
+    }
+  ]
+}
