@@ -9,6 +9,10 @@ client.on('ready', (message) => {
 });
 
 client.on('message', (message) => {
+  if (message.mentions.users.get(kaamelott.persos['Kadoc'].user.id)) {
+    kaamelott.kadoc(client, message.channel);
+    return;
+  }
   if (!message.content.startsWith(config.prefix) || message.author.bot) return;
 
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
@@ -35,6 +39,9 @@ client.on('message', (message) => {
 
     let channel = message.channel
     message.delete();
+
+    if (args[0].startsWith('_')) return;
+
     kaamelott.quote(client, channel, args[0]);
     break;
   }

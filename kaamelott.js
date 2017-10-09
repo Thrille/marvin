@@ -5,7 +5,9 @@ let persos = {
   'Karadoc': new Discord.Client(),
   'Bohort': new Discord.Client(),
   'Perceval': new Discord.Client(),
-  'Le tavernier': new Discord.Client()
+  'Le tavernier': new Discord.Client(),
+  'Arthur': new Discord.Client(),
+  'Kadoc': new Discord.Client()
 }
 
 exports.quote = function(client, channel, quote) {
@@ -18,7 +20,7 @@ exports.quote = function(client, channel, quote) {
     for (let i = 0; i < q.length; i++) {
       let name = q[i].name;
       let text = q[i].text;
-
+      console.log(`${name}: ${text}`);
       channels[name] = channels[name] || persos[name].channels.get(channel.id);
     }
 
@@ -26,6 +28,15 @@ exports.quote = function(client, channel, quote) {
 
   }
 }
+
+exports.kadoc = function(client, channel) {
+  const quotes = JSON.parse(fs.readFileSync('./quotes.json', 'utf8'))['_kadoc'];
+  let quote = quotes[Math.floor(Math.random()*quotes.length)];
+  let chan = persos['Kadoc'].channels.get(channel.id);
+  chan.send(quote);
+}
+
+exports.persos = persos;
 
 function send(channels, quote, pos) {
   let name = quote[pos].name;
@@ -54,3 +65,5 @@ persos['Karadoc'].login(config.kaamelott.karadoc);
 persos['Bohort'].login(config.kaamelott.bohort);
 persos['Perceval'].login(config.kaamelott.perceval);
 persos['Le tavernier'].login(config.kaamelott.leTavernier);
+persos['Arthur'].login(config.kaamelott.arthur);
+persos['Kadoc'].login(config.kaamelott.kadoc)
