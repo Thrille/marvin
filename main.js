@@ -11,7 +11,6 @@ client.on('ready', (message) => {
 client.on('message', (message) => {
   if (message.mentions.users.get(kaamelott.persos['Kadoc'].user.id)) {
     kaamelott.kadoc(client, message.channel);
-    return;
   }
   if (!message.content.startsWith(config.prefix) || message.author.bot) return;
 
