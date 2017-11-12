@@ -1,17 +1,22 @@
 const Discord = require('discord.js');
 const fs = require('fs');
 const config = require('./config.json');
+const _ = require('lodash');
+
 let persos = {
   'Karadoc': new Discord.Client(),
   'Bohort': new Discord.Client(),
   'Perceval': new Discord.Client(),
   'Le tavernier': new Discord.Client(),
   'Arthur': new Discord.Client(),
-  'Kadoc': new Discord.Client()
+  'Kadoc': new Discord.Client(),
+  'Loth': new Discord.Client(),
+  'Yvain': new Discord.Client(),
+  'SylvainDuriff': new Discord.Client()
 }
 
 exports.quote = function(client, channel, quote) {
-  const quotes = JSON.parse(fs.readFileSync('./quotes.json', 'utf8'));
+  const quotes = JSON.parse(fs.readFileSync('./kaamelot.json', 'utf8'));
   let channels = {};
 
   if (quotes[quote]) {
@@ -29,10 +34,16 @@ exports.quote = function(client, channel, quote) {
   }
 }
 
-exports.kadoc = function(client, channel) {
-  const quotes = JSON.parse(fs.readFileSync('./quotes.json', 'utf8'))['_kadoc'];
-  let quote = quotes[Math.floor(Math.random()*quotes.length)];
-  let chan = persos['Kadoc'].channels.get(channel.id);
+exports.randomQuote = function(client, channel, user) {
+  let perso = getPerso(user.id);
+  if (perso === null) { return false; }
+
+  let quotes = JSON.parse(fs.readFileSync('./quotes.json', 'utf8'))[_.findKey(persos, perso)];
+  if (quotes === undefined) { return false; }
+
+  let quote = randomItem(quotes);
+  let chan = perso.channels.get(channel.id);
+
   chan.send(quote);
 }
 
@@ -61,9 +72,29 @@ function send(channels, quote, pos) {
 
 }
 
+function getPerso(id) {
+  for (key in persos) {
+    if (persos[key].user.id == id) {
+      return persos[key];
+    }
+  }
+  return null;
+}
+
+function randomItem(array) {
+  return array[Math.floor(Math.random()*array.length)];
+}
+
+function getKey(index, array) {
+  return Object.keys(array)[index];
+}
+
 persos['Karadoc'].login(config.kaamelott.karadoc);
 persos['Bohort'].login(config.kaamelott.bohort);
 persos['Perceval'].login(config.kaamelott.perceval);
 persos['Le tavernier'].login(config.kaamelott.leTavernier);
 persos['Arthur'].login(config.kaamelott.arthur);
-persos['Kadoc'].login(config.kaamelott.kadoc)
+persos['Kadoc'].login(config.kaamelott.kadoc);
+persos['Loth'].login(config.kaamelott.loth);
+persos['Yvain'].login(config.kaamelott.yvain);
+persos['SylvainDuriff'].login(config.kaamelott.sylvainDuriff)

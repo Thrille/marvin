@@ -9,8 +9,9 @@ client.on('ready', (message) => {
 });
 
 client.on('message', (message) => {
-  if (message.mentions.users.get(kaamelott.persos['Kadoc'].user.id)) {
-    kaamelott.kadoc(client, message.channel);
+  let mentioned_users = message.mentions.users.array()
+  for (var i = 0; i < mentioned_users.length; i++) {
+    kaamelott.randomQuote(client, message.channel, mentioned_users[i]);
   }
   if (!message.content.startsWith(config.prefix) || message.author.bot) return;
 
